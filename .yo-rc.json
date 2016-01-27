@@ -1,0 +1,25 @@
+{
+  "generator-jhipster": {
+    "baseName": "InventoryApp",
+    "packageName": "com.faizalsidek.inventory",
+    "packageFolder": "com/faizalsidek/inventory",
+    "authenticationType": "oauth2",
+    "hibernateCache": "hazelcast",
+    "clusteredHttpSession": "hazelcast",
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": "elasticsearch",
+    "useSass": false,
+    "buildTool": "gradle",
+    "frontendBuilder": "gulp",
+    "enableTranslation": true,
+    "enableSocialSignIn": false,
+    "rememberMeKey": "8efc6baa185f4ba859cef0b43c856d572d8b781a",
+    "testFrameworks": [
+      "gatling",
+      "cucumber"
+    ]
+  }
+}

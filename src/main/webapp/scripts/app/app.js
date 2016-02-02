@@ -22,7 +22,9 @@ angular.module('inventoryappApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'p
 
         $rootScope.ENV = ENV;
         $rootScope.VERSION = VERSION;
+
         $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
+            console.log("Tostate: " + angular.toJson(toState));
             $rootScope.toState = toState;
             $rootScope.toStateParams = toStateParams;
 
@@ -64,6 +66,8 @@ angular.module('inventoryappApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'p
 
 
         $rootScope.back = function () {
+            console.log("Back button pressed.");
+
             // If previous state is 'activate' or do not exist go to 'home'
             if ($rootScope.previousStateName === 'activate' || $state.get($rootScope.previousStateName) === null) {
                 $state.go('home');

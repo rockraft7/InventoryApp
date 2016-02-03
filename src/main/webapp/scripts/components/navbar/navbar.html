@@ -34,16 +34,16 @@
             </ul>
         </li>
         <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="">
                 <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
                 <li>
-                    <a href="#"><i class="fa fa-gear fa-fw"></i> <span translate="global.menu.account.settings">Settings</span></a>
+                    <a href="" ui-sref="settings"><i class="fa fa-gear fa-fw"></i> <span translate="global.menu.account.settings">Settings</span></a>
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="#"><i class="fa fa-lock fa-fw"></i> <span translate="global.menu.account.password">Password</span></a>
+                    <a href="" ui-sref="password"><i class="fa fa-lock fa-fw"></i> <span translate="global.menu.account.password">Password</span></a>
                 </li>
                 <li class="divider"></li>
                 <li>
@@ -69,6 +69,36 @@
                 </li>
                 <li>
                     <a href="#" ui-sref="main"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-shopping-cart fa-fw"></i> Orders<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li><a href="#"> New Order</a></li>
+                        <li><a href="#"> Pending Order</a></li>
+                        <li><a href="#"> Fulfilled Order</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-reply fa-fw"></i> Return Stock<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li><a href="#"> Test Equipment</a> </li>
+                        <li><a href="#"> General Equipment</a> </li>
+                        <li><a href="#"> Consumables</a> </li>
+                    </ul>
+                </li>
+                <li has-authority="ROLE_ADMIN">
+                    <a href="#"><i class="fa fa-file-text-o fa-fw"></i> Manage Stock<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="#"> Stock Acquisition<span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li><a href="#"> New Acquisition</a></li>
+                                <li><a href="#"> Pending Acquisition</a></li>
+                                <li><a href="#"> Fulfilled Acquisition</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"> Stock Disposal</a></span></li>
+                    </ul>
                 </li>
                 <li has-authority="ROLE_ADMIN">
                     <a href="#"><i class="fa fa-wrench fa-fw"></i> <span translate="global.menu.admin.main">Administration</span><span class="fa arrow"></span></a>

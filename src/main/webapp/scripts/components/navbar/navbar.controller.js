@@ -8,6 +8,7 @@ angular.module('inventoryappApp')
 
         $scope.logout = function () {
             Auth.logout();
-            $state.go('home');
+            $state.go('login');
         };
+        $('#side-menu').metisMenu();
     });

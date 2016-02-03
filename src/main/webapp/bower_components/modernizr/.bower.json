@@ -8,7 +8,7 @@
     "tag": "v3.2.0",
     "commit": "ec746816e1edb88ec80f88898a17fa2e3d7cb844"
   },
-  "_source": "git://github.com/Modernizr/Modernizr.git",
+  "_source": "https://github.com/Modernizr/Modernizr.git",
   "_target": "3.2.0",
   "_originalSource": "modernizr"
 }

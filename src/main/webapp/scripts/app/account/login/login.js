@@ -4,6 +4,7 @@ angular.module('inventoryappApp')
     .config(function ($stateProvider) {
         $stateProvider
             .state('login', {
+                parent:'clean',
                 url: '/login',
                 data: {
                     authorities: [],

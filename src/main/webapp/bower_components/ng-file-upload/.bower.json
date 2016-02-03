@@ -18,7 +18,7 @@
     "tag": "10.0.2",
     "commit": "73aa36b690f11eebd583ed9abded81f5dd7d6ff9"
   },
-  "_source": "git://github.com/danialfarid/angular-file-upload-bower.git",
+  "_source": "https://github.com/danialfarid/angular-file-upload-bower.git",
   "_target": "10.0.2",
   "_originalSource": "ng-file-upload"
 }

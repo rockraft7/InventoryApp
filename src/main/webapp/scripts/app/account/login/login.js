@@ -4,14 +4,13 @@ angular.module('inventoryappApp')
     .config(function ($stateProvider) {
         $stateProvider
             .state('login', {
-                parent: 'account',
                 url: '/login',
                 data: {
-                    authorities: [], 
+                    authorities: [],
                     pageTitle: 'login.title'
                 },
                 views: {
-                    'content@': {
+                    'master@': {
                         templateUrl: 'scripts/app/account/login/login.html',
                         controller: 'LoginController'
                     }

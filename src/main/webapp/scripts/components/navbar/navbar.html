@@ -1,3 +1,96 @@
+<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#/"><span translate="global.title">Inventory</span> <span class="navbar-version">v1.0</span></a>
+    </div>
+
+    <ul class="nav navbar-top-links navbar-right">
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-envelope fa-fw"></i><i class="fa fa-caret-down"></i>
+            </a>
+            <!-- TODO put message contents here -->
+        </li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-tasks fa-fw"></i><i class="fa fa-caret-down"></i>
+            </a>
+            <!-- TODO put task contents here -->
+        </li>
+        <li class="dropdown" ng-controller="LanguageController">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-flag fa-fw"></i> <i class="fa fa-caret-down"></i>
+            </a>
+            <!-- TODO put alert contents here -->
+            <ul class="dropdown-menu dropdown-user">
+                <li active-menu="{{language}}" ng-repeat="language in languages">
+                    <a href="" ng-click="changeLanguage(language)"><i class="fa fa-gears fa-fw"></i> {{language | findLanguageFromKey}}</a>
+                </li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+                <li>
+                    <a href="#"><i class="fa fa-gear fa-fw"></i> <span translate="global.menu.account.settings">Settings</span></a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#"><i class="fa fa-lock fa-fw"></i> <span translate="global.menu.account.password">Password</span></a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="" ng-click="logout()"><i class="fa fa-sign-out fa-fw"></i> <span translate="global.menu.account.logout">Sign Out</span></a>
+                </li>
+            </ul>
+            <!-- TODO put user menus here -->
+        </li>
+    </ul>
+
+    <div class="navbar-default sidebar" role="navigation" ng-switch="isAuthenticated()">
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+                <li class="sidebar-search">
+                    <div class="input-group custom-search-form">
+                        <input type="text" class="form-control" placeholder="Search..." />
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" ui-sref="main"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                </li>
+                <li has-authority="ROLE_ADMIN">
+                    <a href="#"><i class="fa fa-wrench fa-fw"></i> <span translate="global.menu.admin.main">Administration</span></a>
+                    <ul class="nav nav-second-level">
+                        <li><a ui-sref="user-management"> <span translate="global.menu.admin.user-management">User management</span></a></li>
+                        <li><a ui-sref="tracker"> <span translate="global.menu.admin.tracker">Tracker</span></a></li>
+                        <li><a ui-sref="metrics"> <span translate="global.menu.admin.metrics">Metrics</span></a></li>
+                        <li><a ui-sref="health"> <span translate="global.menu.admin.health">Health</span></a></li>
+                        <li><a ui-sref="configuration"> <span translate="global.menu.admin.configuration">Configuration</span></a></li>
+                        <li><a ui-sref="audits"> <span translate="global.menu.admin.audits">Audits</span></a></li>
+                        <li><a ui-sref="logs"> <span translate="global.menu.admin.logs">Logs</span></a></li>
+                        <li><a ui-sref="docs"> <span translate="global.menu.admin.apidocs">API</span></a></li>
+                    </ul>
+                </li>
+                <li>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--
 <nav class="navbar navbar-default" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -17,7 +110,6 @@
                         <span class="hidden-sm" translate="global.menu.home">Home</span>
                     </a>
                 </li>
-                <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
                 <li ui-sref-active="active" ng-switch-when="true" class="dropdown pointer">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="">
                         <span>
@@ -29,7 +121,6 @@
                         </span>
                     </a>
                     <ul class="dropdown-menu">
-                        <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                     </ul>
                 </li>
                 <li ng-class="{active: $state.includes('account')}" class="dropdown pointer">
@@ -80,7 +171,6 @@
                             &#xA0;<span translate="global.menu.admin.logs">Logs</span></a></li>
                         <li ng-hide="inProduction" ui-sref-active="active"><a ui-sref="docs" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-book"></span>
                             &#xA0;<span translate="global.menu.admin.apidocs">API</span></a></li>
-                        <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
                         <li ng-hide="inProduction"><a href='/h2-console' target="_tab" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-hdd"></span>
                             &#xA0;<span translate="global.menu.admin.database">Database</span></a></li>
                     </ul>
@@ -103,3 +193,4 @@
         </div>
     </div>
 </nav>
+-->

@@ -7,30 +7,33 @@
         <meta name="description" content="">
         <meta name="google" value="notranslate">
         <meta name="viewport" content="width=device-width">
+        <meta name="author" content="Faizal Sidek">
+        <meta name="description" content="Inventory app.">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css assets/styles/vendor.css -->
         <!-- bower:css -->
         <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="bower_components/metisMenu/dist/metisMenu.min.css" />
+        <link rel="stylesheet" href="bower_components/morrisjs/morris.css">
+        <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
         <!-- endbower -->
         <!-- endbuild -->
         <!-- build:css assets/styles/main.css -->
         <link rel="stylesheet" href="assets/styles/main.css">
+        <link rel="stylesheet" href="assets/styles/sb-admin-2.css">
         <!-- endbuild -->
     </head>
     <body ng-app="inventoryappApp">
         <!--[if lt IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div ng-show="{{ENV === 'dev'}}" class="development" ng-cloak=""></div>
-        <div ui-view="navbar" ng-cloak=""></div>
-        <div class="container">
-            <div class="well" ui-view="content"></div>
 
-            <div class="footer">
-                <p translate="footer">This is your footer</p>
-            </div>
-        </div>
+        <div ui-view="master"></div>
+
+        <div ui-view="navbar"></div>
+
+        <div ui-view="content"></div>
 
         <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
         <script>
@@ -67,6 +70,14 @@
         <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
         <script src="bower_components/sockjs-client/dist/sockjs.js"></script>
         <script src="bower_components/stomp-websocket/lib/stomp.min.js"></script>
+        <script src="bower_components/datatables/media/js/jquery.dataTables.js"></script>
+        <script src="bower_components/flot/jquery.flot.js"></script>
+        <script src="bower_components/holderjs/holder.js"></script>
+        <script src="bower_components/metisMenu/dist/metisMenu.js"></script>
+        <script src="bower_components/raphael/raphael.js"></script>
+        <script src="bower_components/mocha/mocha.js"></script>
+        <script src="bower_components/morrisjs/morris.js"></script>
+        <script src="bower_components/flot.tooltip/js/jquery.flot.tooltip.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 

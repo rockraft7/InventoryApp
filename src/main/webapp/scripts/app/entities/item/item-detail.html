@@ -1,0 +1,70 @@
+
+<div>
+    <h2><span translate="inventoryappApp.item.detail.title">Item</span> {{item.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th translate="entity.detail.field">Field</th>
+                <th translate="entity.detail.value">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span translate="inventoryappApp.item.serialNumber">SerialNumber</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{item.serialNumber}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="inventoryappApp.item.storageLocation">StorageLocation</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{item.storageLocation}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="inventoryappApp.item.group">group</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="itemGroup.detail({id:item.group.id})">{{item.group.name}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="inventoryappApp.item.model">model</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="itemModel.detail({id:item.model.id})">{{item.model.name}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="inventoryappApp.item.unit">unit</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="unit.detail({id:item.unit.id})">{{item.unit.name}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="inventoryappApp.item.status">status</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="ItemStatus.detail({id:item.status.id})">{{item.status.caption}}</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

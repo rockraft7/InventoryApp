@@ -1,0 +1,4 @@
+id;name;tag;description;created_by
+1;Test Equipment;RHSTE;Test equipment and instrumentation;system
+2;General Equipment;RHSGE;General equipment and instrumentation;system
+3;Consumable;RHSC;Screws, welding rods, etc.;system

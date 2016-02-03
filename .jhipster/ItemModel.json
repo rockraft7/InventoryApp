@@ -1,0 +1,46 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "brand",
+            "otherEntityName": "itemBrand",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "modelNumber",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "pictureUrl",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "url",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "specification",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160203135537",
+    "dto": "no",
+    "service": "no",
+    "pagination": "pager",
+    "enableEntityAudit": true
+}

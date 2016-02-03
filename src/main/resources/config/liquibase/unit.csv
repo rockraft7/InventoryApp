@@ -1,0 +1,8 @@
+id;name;type;symbol;created_by
+1;Count;Count;pc;system
+2;Kilogram;Weight;kg;system
+3;Pound;Weight;lb;system
+4;Gallon;Volume;gal;system
+5;Centimeter;Length;cm;system
+6;Meter;Length;m;system
+7;Pack of 20;Count;pax;system

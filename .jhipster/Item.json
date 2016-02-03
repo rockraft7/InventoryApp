@@ -1,0 +1,49 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "group",
+            "otherEntityName": "itemGroup",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipId": 2,
+            "relationshipName": "model",
+            "otherEntityName": "itemModel",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipId": 3,
+            "relationshipName": "unit",
+            "otherEntityName": "unit",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipId": 4,
+            "relationshipName": "status",
+            "otherEntityName": "ItemStatus",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "caption"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "serialNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "storageLocation",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160203141948",
+    "dto": "no",
+    "service": "no",
+    "pagination": "pager",
+    "enableEntityAudit": true
+}

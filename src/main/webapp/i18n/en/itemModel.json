@@ -1,0 +1,24 @@
+{
+    "inventoryappApp": {
+        "itemModel" : {
+            "home": {
+                "title": "ItemModels",
+                "createLabel": "Create a new ItemModel",
+                "createOrEditLabel": "Create or edit a ItemModel",
+                "search": "Search for ItemModel"
+            },
+            "created": "A new ItemModel is created with identifier {{ param }}",
+            "updated": "A ItemModel is updated with identifier {{ param }}",
+            "deleted": "A ItemModel is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete ItemModel {{ id }}?"
+            },
+            "detail": {
+                "title": "ItemModel"
+            },
+            "name": "Name",
+            "description": "Description",
+            "brand": "Brand"
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "inventoryappApp": {
+        "unit" : {
+            "home": {
+                "title": "Units",
+                "createLabel": "Créer un nouveau Unit",
+                "createOrEditLabel": "Créer ou éditer un Unit",
+                "search": "Search for Unit"
+            },
+            "created": "Un nouveau Unit a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Unit avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Unit avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Unit {{ id }} ?"
+            },
+            "detail": {
+                "title": "Unit"
+            },
+            "name": "Name",
+            "type": "Type",
+            "symbol": "Symbol"
+        }
+    }
+}
+

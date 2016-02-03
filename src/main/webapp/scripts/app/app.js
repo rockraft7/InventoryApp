@@ -2,6 +2,7 @@
 
 angular.module('inventoryappApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascalprecht.translate',
     'ngResource', 'ngCookies', 'ngAria', 'ngCacheBuster', 'ngFileUpload',
+    'ds.objectDiff',
     // jhipster-needle-angularjs-add-module JHipster will add new module here
     'ui.bootstrap', 'ui.router',  'infinite-scroll', 'angular-loading-bar'])
 
@@ -107,6 +108,7 @@ angular.module('inventoryappApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'p
         $httpProvider.interceptors.push('authExpiredInterceptor');
         $httpProvider.interceptors.push('authInterceptor');
         $httpProvider.interceptors.push('notificationInterceptor');
+        $httpProvider.interceptors.push('entityAuditInterceptor');
         // jhipster-needle-angularjs-add-interceptor JHipster will add new application interceptor here
 
         // Initialize angular-translate

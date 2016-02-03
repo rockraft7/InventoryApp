@@ -9,6 +9,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
+import com.faizalsidek.inventory.config.audit.EntityAuditEventListener;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import java.time.ZonedDateTime;
 import javax.persistence.Column;
@@ -22,7 +23,7 @@ import javax.validation.constraints.NotNull;
  */
 @MappedSuperclass
 @Audited
-@EntityListeners(AuditingEntityListener.class)
+@EntityListeners({AuditingEntityListener.class, EntityAuditEventListener.class})
 public abstract class AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -30,23 +31,23 @@ public abstract class AbstractAuditingEntity implements Serializable {
     @CreatedBy
     @NotNull
     @Column(name = "created_by", nullable = false, length = 50, updatable = false)
-    @JsonIgnore
+    
     private String createdBy;
 
     @CreatedDate
     @NotNull
     @Column(name = "created_date", nullable = false)
-    @JsonIgnore
+    
     private ZonedDateTime createdDate = ZonedDateTime.now();
 
     @LastModifiedBy
     @Column(name = "last_modified_by", length = 50)
-    @JsonIgnore
+    
     private String lastModifiedBy;
 
     @LastModifiedDate
     @Column(name = "last_modified_date")
-    @JsonIgnore
+    
     private ZonedDateTime lastModifiedDate = ZonedDateTime.now();
 
     public String getCreatedBy() {

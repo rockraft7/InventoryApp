@@ -1,0 +1,24 @@
+{
+    "inventoryappApp": {
+        "itemBrand" : {
+            "home": {
+                "title": "ItemBrands",
+                "createLabel": "Créer un nouveau ItemBrand",
+                "createOrEditLabel": "Créer ou éditer un ItemBrand",
+                "search": "Search for ItemBrand"
+            },
+            "created": "Un nouveau ItemBrand a été créé avec l'identifiant {{ param }}",
+            "updated": "Le ItemBrand avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le ItemBrand avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le ItemBrand {{ id }} ?"
+            },
+            "detail": {
+                "title": "ItemBrand"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}
+

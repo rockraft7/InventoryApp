@@ -1,0 +1,24 @@
+{
+    "inventoryappApp": {
+        "itemGroup" : {
+            "home": {
+                "title": "ItemGroups",
+                "createLabel": "Create a new ItemGroup",
+                "createOrEditLabel": "Create or edit a ItemGroup",
+                "search": "Search for ItemGroup"
+            },
+            "created": "A new ItemGroup is created with identifier {{ param }}",
+            "updated": "A ItemGroup is updated with identifier {{ param }}",
+            "deleted": "A ItemGroup is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete ItemGroup {{ id }}?"
+            },
+            "detail": {
+                "title": "ItemGroup"
+            },
+            "name": "Name",
+            "tag": "Tag",
+            "description": "Description"
+        }
+    }
+}

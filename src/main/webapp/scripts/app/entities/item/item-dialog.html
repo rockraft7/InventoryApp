@@ -1,0 +1,62 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myItemLabel" translate="inventoryappApp.item.home.createOrEditLabel">Create or edit a Item</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="item.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="inventoryappApp.item.serialNumber" for="field_serialNumber">SerialNumber</label>
+            <input type="text" class="form-control" name="serialNumber" id="field_serialNumber"
+                    ng-model="item.serialNumber"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="inventoryappApp.item.storageLocation" for="field_storageLocation">StorageLocation</label>
+            <input type="text" class="form-control" name="storageLocation" id="field_storageLocation"
+                    ng-model="item.storageLocation"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="inventoryappApp.item.group" for="field_group">group</label>
+            <select class="form-control" id="field_group" name="group" ng-model="item.group" ng-options="itemGroup as itemGroup.name for itemGroup in itemgroups track by itemGroup.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="inventoryappApp.item.model" for="field_model">model</label>
+            <select class="form-control" id="field_model" name="model" ng-model="item.model" ng-options="itemModel as itemModel.name for itemModel in itemmodels track by itemModel.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="inventoryappApp.item.unit" for="field_unit">unit</label>
+            <select class="form-control" id="field_unit" name="unit" ng-model="item.unit" ng-options="unit as unit.name for unit in units track by unit.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="inventoryappApp.item.status" for="field_status">status</label>
+            <select class="form-control" id="field_status" name="status" ng-model="item.status" ng-options="ItemStatus as ItemStatus.caption for ItemStatus in itemstatuss track by ItemStatus.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,23 @@
+{
+    "inventoryappApp": {
+        "itemStatus" : {
+            "home": {
+                "title": "ItemStatuss",
+                "createLabel": "Create a new ItemStatus",
+                "createOrEditLabel": "Create or edit a ItemStatus",
+                "search": "Search for ItemStatus"
+            },
+            "created": "A new ItemStatus is created with identifier {{ param }}",
+            "updated": "A ItemStatus is updated with identifier {{ param }}",
+            "deleted": "A ItemStatus is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete ItemStatus {{ id }}?"
+            },
+            "detail": {
+                "title": "ItemStatus"
+            },
+            "tag": "Tag",
+            "caption": "Caption"
+        }
+    }
+}

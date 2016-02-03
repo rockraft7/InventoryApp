@@ -44,6 +44,7 @@ module.exports = function (config) {
             'main/webapp/bower_components/morrisjs/morris.js',
             'main/webapp/bower_components/datatables-responsive/js/dataTables.responsive.js',
             'main/webapp/bower_components/flot.tooltip/js/jquery.flot.tooltip.js',
+            'main/webapp/bower_components/angular-object-diff/dist/angular-object-diff.js',
             'main/webapp/bower_components/angular-mocks/angular-mocks.js',
             // endbower
             'main/webapp/scripts/app/app.js',

@@ -1,0 +1,25 @@
+{
+    "inventoryappApp": {
+        "itemModel" : {
+            "home": {
+                "title": "ItemModels",
+                "createLabel": "Créer un nouveau ItemModel",
+                "createOrEditLabel": "Créer ou éditer un ItemModel",
+                "search": "Search for ItemModel"
+            },
+            "created": "Un nouveau ItemModel a été créé avec l'identifiant {{ param }}",
+            "updated": "Le ItemModel avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le ItemModel avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le ItemModel {{ id }} ?"
+            },
+            "detail": {
+                "title": "ItemModel"
+            },
+            "name": "Name",
+            "description": "Description",
+            "brand": "Brand"
+        }
+    }
+}
+

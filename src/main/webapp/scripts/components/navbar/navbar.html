@@ -68,7 +68,7 @@
                     </div>
                 </li>
                 <li>
-                    <a href="#" ui-sref="main"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                    <a href="#" ui-sref="home"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                 </li>
                 <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
                 <li>
@@ -103,7 +103,15 @@
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-twitter fa-fw"></i> <span translate="global.menu.entities.main">Entities</span><span class="fa arrow"></span></a>
-                    <ul class="dropdown-menu">
+                    <ul class="nav nav-second-level">
+                        <li><a ui-sref="author">&#xA0;<span translate="global.menu.entities.author">Author</span></a></li>
+                        <li><a ui-sref="book">&#xA0;<span translate="global.menu.entities.book">Book</span></a></li>
+                        <li><a ui-sref="itemGroup">&#xA0;<span translate="global.menu.entities.itemGroup">Item group</span></a></li>
+                        <li><a ui-sref="itemBrand">&#xA0;<span translate="global.menu.entities.itemBrand">Item brand</span></a></li>
+                        <li><a ui-sref="itemModel">&#xA0;<span translate="global.menu.entities.itemModel">Item model</span></a></li>
+                        <li><a ui-sref="unit">&#xA0;<span translate="global.menu.entities.unit">Unit</span></a></li>
+                        <li><a ui-sref="item">&#xA0;<span translate="global.menu.entities.item">Item</span></a></li>
+                        <li><a ui-sref="itemStatus">&#xA0;<span translate="global.menu.entities.itemStatus">Item status</span></a></li>
                         <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                     </ul>
                 </li>
@@ -118,6 +126,8 @@
                         <li><a ui-sref="audits"> <span translate="global.menu.admin.audits">Audits</span></a></li>
                         <li><a ui-sref="logs"> <span translate="global.menu.admin.logs">Logs</span></a></li>
                         <li><a ui-sref="docs"> <span translate="global.menu.admin.apidocs">API</span></a></li>
+                        <li><a ui-sref="entityAudit"><span translate="global.menu.admin.entityAudit">Entity audit</span></a></li>
+                        <li ng-hide="inProduction"><a href='/h2-console' target="_tab"><span translate="global.menu.admin.database">Database</span></a></li>
                         <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
                     </ul>
                 </li>

@@ -1,0 +1,24 @@
+{
+    "inventoryappApp": {
+        "itemStatus" : {
+            "home": {
+                "title": "ItemStatuss",
+                "createLabel": "Créer un nouveau ItemStatus",
+                "createOrEditLabel": "Créer ou éditer un ItemStatus",
+                "search": "Search for ItemStatus"
+            },
+            "created": "Un nouveau ItemStatus a été créé avec l'identifiant {{ param }}",
+            "updated": "Le ItemStatus avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le ItemStatus avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le ItemStatus {{ id }} ?"
+            },
+            "detail": {
+                "title": "ItemStatus"
+            },
+            "tag": "Tag",
+            "caption": "Caption"
+        }
+    }
+}
+

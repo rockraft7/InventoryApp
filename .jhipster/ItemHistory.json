@@ -1,0 +1,24 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "item",
+            "otherEntityName": "item",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipId": 2,
+            "relationshipName": "status",
+            "otherEntityName": "itemStatus",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "caption"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20160203173848",
+    "dto": "no",
+    "service": "no",
+    "pagination": "pagination",
+    "enableEntityAudit": true
+}

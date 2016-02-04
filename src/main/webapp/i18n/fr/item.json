@@ -18,10 +18,11 @@
             },
             "serialNumber": "SerialNumber",
             "storageLocation": "StorageLocation",
+            "dateAcquire": "DateAcquire",
             "group": "Group",
             "model": "Model",
-            "unit": "Unit",
-            "status": "Status"
+            "status": "Status",
+            "history": "History"
         }
     }
 }

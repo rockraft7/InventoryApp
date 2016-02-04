@@ -1,0 +1,38 @@
+
+<div>
+    <h2><span translate="inventoryappApp.itemHistory.detail.title">ItemHistory</span> {{itemHistory.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th translate="entity.detail.field">Field</th>
+                <th translate="entity.detail.value">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span translate="inventoryappApp.itemHistory.item">item</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="item.detail({id:itemHistory.item.id})">{{itemHistory.item.id}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="inventoryappApp.itemHistory.status">status</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="itemStatus.detail({id:itemHistory.status.id})">{{itemHistory.status.caption}}</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

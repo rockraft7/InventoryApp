@@ -1,0 +1,24 @@
+{
+    "inventoryappApp": {
+        "itemHistory" : {
+            "home": {
+                "title": "ItemHistorys",
+                "createLabel": "Créer un nouveau ItemHistory",
+                "createOrEditLabel": "Créer ou éditer un ItemHistory",
+                "search": "Search for ItemHistory"
+            },
+            "created": "Un nouveau ItemHistory a été créé avec l'identifiant {{ param }}",
+            "updated": "Le ItemHistory avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le ItemHistory avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le ItemHistory {{ id }} ?"
+            },
+            "detail": {
+                "title": "ItemHistory"
+            },
+            "item": "Item",
+            "status": "Status"
+        }
+    }
+}
+

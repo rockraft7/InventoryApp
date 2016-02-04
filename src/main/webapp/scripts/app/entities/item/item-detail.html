@@ -28,6 +28,14 @@
             </tr>
             <tr>
                 <td>
+                    <span translate="inventoryappApp.item.dateAcquire">DateAcquire</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{item.dateAcquire | date:'mediumDate'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <span translate="inventoryappApp.item.group">group</span>
                 </td>
                 <td>
@@ -40,14 +48,6 @@
                 </td>
                 <td>
                     <a class="form-control-static" ui-sref="itemModel.detail({id:item.model.id})">{{item.model.name}}</a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span translate="inventoryappApp.item.unit">unit</span>
-                </td>
-                <td>
-                    <a class="form-control-static" ui-sref="unit.detail({id:item.unit.id})">{{item.unit.name}}</a>
                 </td>
             </tr>
             <tr>

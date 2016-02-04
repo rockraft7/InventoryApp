@@ -1,0 +1,23 @@
+{
+    "inventoryappApp": {
+        "itemHistory" : {
+            "home": {
+                "title": "ItemHistorys",
+                "createLabel": "Create a new ItemHistory",
+                "createOrEditLabel": "Create or edit a ItemHistory",
+                "search": "Search for ItemHistory"
+            },
+            "created": "A new ItemHistory is created with identifier {{ param }}",
+            "updated": "A ItemHistory is updated with identifier {{ param }}",
+            "deleted": "A ItemHistory is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete ItemHistory {{ id }}?"
+            },
+            "detail": {
+                "title": "ItemHistory"
+            },
+            "item": "Item",
+            "status": "Status"
+        }
+    }
+}

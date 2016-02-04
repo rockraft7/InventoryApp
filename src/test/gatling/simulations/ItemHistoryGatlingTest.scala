@@ -10,9 +10,9 @@ import org.slf4j.LoggerFactory
 import scala.concurrent.duration._
 
 /**
- * Performance test for the Item entity.
+ * Performance test for the ItemHistory entity.
  */
-class ItemGatlingTest extends Simulation {
+class ItemHistoryGatlingTest extends Simulation {
 
     val context: LoggerContext = LoggerFactory.getILoggerFactory.asInstanceOf[LoggerContext]
     // Log all HTTP requests
@@ -48,7 +48,7 @@ class ItemGatlingTest extends Simulation {
         "Authorization" -> "Bearer ${access_token}"
     )
 
-    val scn = scenario("Test the Item entity")
+    val scn = scenario("Test the ItemHistory entity")
         .exec(http("First unauthenticated request")
         .get("/api/account")
         .headers(headers_http)
@@ -72,26 +72,26 @@ class ItemGatlingTest extends Simulation {
         .check(status.is(200)))
         .pause(10)
         .repeat(2) {
-            exec(http("Get all items")
-            .get("/api/items")
+            exec(http("Get all itemHistorys")
+            .get("/api/itemHistorys")
             .headers(headers_http_authenticated)
             .check(status.is(200)))
             .pause(10 seconds, 20 seconds)
-            .exec(http("Create new item")
-            .post("/api/items")
+            .exec(http("Create new itemHistory")
+            .post("/api/itemHistorys")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "serialNumber":"SAMPLE_TEXT", "storageLocation":"SAMPLE_TEXT", "dateAcquire":"2020-01-01T00:00:00.000Z"}""")).asJSON
+            .body(StringBody("""{"id":null}""")).asJSON
             .check(status.is(201))
-            .check(headerRegex("Location", "(.*)").saveAs("new_item_url")))
+            .check(headerRegex("Location", "(.*)").saveAs("new_itemHistory_url")))
             .pause(10)
             .repeat(5) {
-                exec(http("Get created item")
-                .get("${new_item_url}")
+                exec(http("Get created itemHistory")
+                .get("${new_itemHistory_url}")
                 .headers(headers_http_authenticated))
                 .pause(10)
             }
-            .exec(http("Delete created item")
-            .delete("${new_item_url}")
+            .exec(http("Delete created itemHistory")
+            .delete("${new_itemHistory_url}")
             .headers(headers_http_authenticated))
             .pause(10)
         }

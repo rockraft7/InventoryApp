@@ -16,17 +16,17 @@
         },
         {
             "relationshipId": 3,
-            "relationshipName": "unit",
-            "otherEntityName": "unit",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "name"
-        },
-        {
-            "relationshipId": 4,
             "relationshipName": "status",
             "otherEntityName": "ItemStatus",
             "relationshipType": "many-to-one",
             "otherEntityField": "caption"
+        },
+        {
+            "relationshipId": 4,
+            "relationshipName": "history",
+            "otherEntityName": "ItemHistory",
+            "relationshipType": "one-to-many",
+            "otherEntityField": "id"
         }
     ],
     "fields": [
@@ -39,6 +39,14 @@
             "fieldId": 2,
             "fieldName": "storageLocation",
             "fieldType": "String"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "dateAcquire",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
         }
     ],
     "changelogDate": "20160203141948",

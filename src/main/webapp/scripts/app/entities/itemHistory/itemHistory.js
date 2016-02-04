@@ -3,119 +3,116 @@
 angular.module('inventoryappApp')
     .config(function ($stateProvider) {
         $stateProvider
-            .state('item', {
+            .state('itemHistory', {
                 parent: 'entity',
-                url: '/items',
+                url: '/itemHistorys',
                 data: {
                     authorities: ['ROLE_USER'],
-                    pageTitle: 'inventoryappApp.item.home.title'
+                    pageTitle: 'inventoryappApp.itemHistory.home.title'
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'scripts/app/entities/item/items.html',
-                        controller: 'ItemController'
+                        templateUrl: 'scripts/app/entities/itemHistory/itemHistorys.html',
+                        controller: 'ItemHistoryController'
                     }
                 },
                 resolve: {
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                        $translatePartialLoader.addPart('item');
+                        $translatePartialLoader.addPart('itemHistory');
                         $translatePartialLoader.addPart('global');
                         return $translate.refresh();
                     }]
                 }
             })
-            .state('item.detail', {
+            .state('itemHistory.detail', {
                 parent: 'entity',
-                url: '/item/{id}',
+                url: '/itemHistory/{id}',
                 data: {
                     authorities: ['ROLE_USER'],
-                    pageTitle: 'inventoryappApp.item.detail.title'
+                    pageTitle: 'inventoryappApp.itemHistory.detail.title'
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'scripts/app/entities/item/item-detail.html',
-                        controller: 'ItemDetailController'
+                        templateUrl: 'scripts/app/entities/itemHistory/itemHistory-detail.html',
+                        controller: 'ItemHistoryDetailController'
                     }
                 },
                 resolve: {
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                        $translatePartialLoader.addPart('item');
+                        $translatePartialLoader.addPart('itemHistory');
                         return $translate.refresh();
                     }],
-                    entity: ['$stateParams', 'Item', function($stateParams, Item) {
-                        return Item.get({id : $stateParams.id});
+                    entity: ['$stateParams', 'ItemHistory', function($stateParams, ItemHistory) {
+                        return ItemHistory.get({id : $stateParams.id});
                     }]
                 }
             })
-            .state('item.new', {
-                parent: 'item',
+            .state('itemHistory.new', {
+                parent: 'itemHistory',
                 url: '/new',
                 data: {
                     authorities: ['ROLE_USER'],
                 },
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({
-                        templateUrl: 'scripts/app/entities/item/item-dialog.html',
-                        controller: 'ItemDialogController',
+                        templateUrl: 'scripts/app/entities/itemHistory/itemHistory-dialog.html',
+                        controller: 'ItemHistoryDialogController',
                         size: 'lg',
                         resolve: {
                             entity: function () {
                                 return {
-                                    serialNumber: null,
-                                    storageLocation: null,
-                                    dateAcquire: null,
                                     id: null
                                 };
                             }
                         }
                     }).result.then(function(result) {
-                        $state.go('item', null, { reload: true });
+                        $state.go('itemHistory', null, { reload: true });
                     }, function() {
-                        $state.go('item');
+                        $state.go('itemHistory');
                     })
                 }]
             })
-            .state('item.edit', {
-                parent: 'item',
+            .state('itemHistory.edit', {
+                parent: 'itemHistory',
                 url: '/{id}/edit',
                 data: {
                     authorities: ['ROLE_USER'],
                 },
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({
-                        templateUrl: 'scripts/app/entities/item/item-dialog.html',
-                        controller: 'ItemDialogController',
+                        templateUrl: 'scripts/app/entities/itemHistory/itemHistory-dialog.html',
+                        controller: 'ItemHistoryDialogController',
                         size: 'lg',
                         resolve: {
-                            entity: ['Item', function(Item) {
-                                return Item.get({id : $stateParams.id});
+                            entity: ['ItemHistory', function(ItemHistory) {
+                                return ItemHistory.get({id : $stateParams.id});
                             }]
                         }
                     }).result.then(function(result) {
-                        $state.go('item', null, { reload: true });
+                        $state.go('itemHistory', null, { reload: true });
                     }, function() {
                         $state.go('^');
                     })
                 }]
             })
-            .state('item.delete', {
-                parent: 'item',
+            .state('itemHistory.delete', {
+                parent: 'itemHistory',
                 url: '/{id}/delete',
                 data: {
                     authorities: ['ROLE_USER'],
                 },
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({
-                        templateUrl: 'scripts/app/entities/item/item-delete-dialog.html',
-                        controller: 'ItemDeleteController',
+                        templateUrl: 'scripts/app/entities/itemHistory/itemHistory-delete-dialog.html',
+                        controller: 'ItemHistoryDeleteController',
                         size: 'md',
                         resolve: {
-                            entity: ['Item', function(Item) {
-                                return Item.get({id : $stateParams.id});
+                            entity: ['ItemHistory', function(ItemHistory) {
+                                return ItemHistory.get({id : $stateParams.id});
                             }]
                         }
                     }).result.then(function(result) {
-                        $state.go('item', null, { reload: true });
+                        $state.go('itemHistory', null, { reload: true });
                     }, function() {
                         $state.go('^');
                     })

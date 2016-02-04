@@ -1,20 +1,20 @@
 <div>
-    <h2 translate="inventoryappApp.item.home.title">Items</h2>
+    <h2 translate="inventoryappApp.itemHistory.home.title">ItemHistorys</h2>
     <jh-alert></jh-alert>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ui-sref="item.new" >
+                <button class="btn btn-primary" ui-sref="itemHistory.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span 
-class="hidden-xs"                        translate="inventoryappApp.item.home.createLabel">Create new Item
+class="hidden-xs"                        translate="inventoryappApp.itemHistory.home.createLabel">Create new ItemHistory
                     </span>
                 </button>
             </div>
             <div class="col-xs-8 no-padding-right">
                 <form name="searchForm" class="form-inline">
                     <div class="input-group pull-right" >
-                        <input type="text" class="form-control" ng-model="searchQuery" id="searchQuery" placeholder="{{ 'inventoryappApp.item.home.search' | translate }}">
+                        <input type="text" class="form-control" ng-model="searchQuery" id="searchQuery" placeholder="{{ 'inventoryappApp.itemHistory.home.search' | translate }}">
                         <span  class="input-group-btn width-min" >
                             <button class="btn btn-info" ng-click="search()">
                                 <span class="glyphicon glyphicon-search"></span>
@@ -31,46 +31,36 @@ class="hidden-xs"                        translate="inventoryappApp.item.home.cr
             <thead>
                 <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
                     <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="serialNumber"><span translate="inventoryappApp.item.serialNumber">SerialNumber</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="storageLocation"><span translate="inventoryappApp.item.storageLocation">StorageLocation</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="dateAcquire"><span translate="inventoryappApp.item.dateAcquire">DateAcquire</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="group.name"><span translate="inventoryappApp.item.group">group</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="model.name"><span translate="inventoryappApp.item.model">model</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="status.caption"><span translate="inventoryappApp.item.status">status</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="item.id"><span translate="inventoryappApp.itemHistory.item">item</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="status.caption"><span translate="inventoryappApp.itemHistory.status">status</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="item in items track by item.id">
-                    <td><a ui-sref="item.detail({id:item.id})">{{item.id}}</a></td>
-                    <td>{{item.serialNumber}}</td>
-                    <td>{{item.storageLocation}}</td>
-                        <td>{{item.dateAcquire | date:'mediumDate'}}</td>
+                <tr ng-repeat="itemHistory in itemHistorys track by itemHistory.id">
+                    <td><a ui-sref="itemHistory.detail({id:itemHistory.id})">{{itemHistory.id}}</a></td>
                     <td>
-                        <a ui-sref="itemGroup.detail({id:item.group.id})">{{item.group.name}}</a>
+                        <a ui-sref="item.detail({id:itemHistory.item.id})">{{itemHistory.item.id}}</a>
                     </td>
                     <td>
-                        <a ui-sref="itemModel.detail({id:item.model.id})">{{item.model.name}}</a>
-                    </td>
-                    <td>
-                        <a ui-sref="ItemStatus.detail({id:item.status.id})">{{item.status.caption}}</a>
+                        <a ui-sref="itemStatus.detail({id:itemHistory.status.id})">{{itemHistory.status.caption}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
-                                    ui-sref="item.detail({id:item.id})"
+                                    ui-sref="itemHistory.detail({id:itemHistory.id})"
                                     class="btn btn-info btn-sm"> 
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
                             </button>
                             <button type="submit"
-                                    ui-sref="item.edit({id:item.id})"
+                                    ui-sref="itemHistory.edit({id:itemHistory.id})"
                                     class="btn btn-primary btn-sm">
                                 <span class="glyphicon glyphicon-pencil"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
                             </button>
                             <button type="submit"
-                                    ui-sref="item.delete({id:item.id})"
+                                    ui-sref="itemHistory.delete({id:itemHistory.id})"
                                     class="btn btn-danger btn-sm">                                    
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
@@ -81,5 +71,7 @@ class="hidden-xs"                        translate="inventoryappApp.item.home.cr
             </tbody>
         </table>
     </div>
-    <uib-pager total-items="totalItems" ng-model="page" ng-change="loadAll()"></uib-pager>
+    <div class="text-center">
+        <uib-pagination class="pagination-sm" total-items="totalItems" ng-model="page" ng-change="loadAll()"></uib-pagination>
+    </div>
 </div>

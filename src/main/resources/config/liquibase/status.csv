@@ -3,3 +3,4 @@ id;tag;caption;created_by
 2;INUSE;In Use;system
 3;INREP;Under Repair;system
 4;DISPO;Disposed;system
+5;RSVRD;Reserved;system

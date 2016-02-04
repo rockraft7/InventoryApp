@@ -1,10 +1,14 @@
 package com.faizalsidek.inventory.domain;
 
+import com.faizalsidek.inventory.config.audit.ItemAuditEventListener;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import java.time.LocalDate;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,6 +21,7 @@ import java.util.Objects;
 @Table(name = "item")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Document(indexName = "item")
+@EntityListeners(ItemAuditEventListener.class)
 public class Item extends AbstractAuditingEntity implements Serializable {
 
     @Id
@@ -25,10 +30,14 @@ public class Item extends AbstractAuditingEntity implements Serializable {
 
     @Column(name = "serial_number")
     private String serialNumber;
-    
+
     @Column(name = "storage_location")
     private String storageLocation;
-    
+
+    @NotNull
+    @Column(name = "date_acquire", nullable = false)
+    private LocalDate dateAcquire;
+
     @ManyToOne
     @JoinColumn(name = "group_id")
     private ItemGroup group;
@@ -38,12 +47,13 @@ public class Item extends AbstractAuditingEntity implements Serializable {
     private ItemModel model;
 
     @ManyToOne
-    @JoinColumn(name = "unit_id")
-    private Unit unit;
-
-    @ManyToOne
     @JoinColumn(name = "status_id")
     private ItemStatus status;
+
+    @OneToMany(mappedBy = "item")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<ItemHistory> historys = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -56,7 +66,7 @@ public class Item extends AbstractAuditingEntity implements Serializable {
     public String getSerialNumber() {
         return serialNumber;
     }
-    
+
     public void setSerialNumber(String serialNumber) {
         this.serialNumber = serialNumber;
     }
@@ -64,9 +74,17 @@ public class Item extends AbstractAuditingEntity implements Serializable {
     public String getStorageLocation() {
         return storageLocation;
     }
-    
+
     public void setStorageLocation(String storageLocation) {
         this.storageLocation = storageLocation;
+    }
+
+    public LocalDate getDateAcquire() {
+        return dateAcquire;
+    }
+
+    public void setDateAcquire(LocalDate dateAcquire) {
+        this.dateAcquire = dateAcquire;
     }
 
     public ItemGroup getGroup() {
@@ -85,20 +103,20 @@ public class Item extends AbstractAuditingEntity implements Serializable {
         this.model = itemModel;
     }
 
-    public Unit getUnit() {
-        return unit;
-    }
-
-    public void setUnit(Unit unit) {
-        this.unit = unit;
-    }
-
     public ItemStatus getStatus() {
         return status;
     }
 
     public void setStatus(ItemStatus ItemStatus) {
         this.status = ItemStatus;
+    }
+
+    public Set<ItemHistory> getHistorys() {
+        return historys;
+    }
+
+    public void setHistorys(Set<ItemHistory> ItemHistorys) {
+        this.historys = ItemHistorys;
     }
 
     @Override
@@ -127,6 +145,7 @@ public class Item extends AbstractAuditingEntity implements Serializable {
             "id=" + id +
             ", serialNumber='" + serialNumber + "'" +
             ", storageLocation='" + storageLocation + "'" +
+            ", dateAcquire='" + dateAcquire + "'" +
             '}';
     }
 }

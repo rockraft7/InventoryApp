@@ -24,6 +24,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -46,6 +48,9 @@ public class ItemResourceIntTest {
     private static final String UPDATED_SERIAL_NUMBER = "BBBBB";
     private static final String DEFAULT_STORAGE_LOCATION = "AAAAA";
     private static final String UPDATED_STORAGE_LOCATION = "BBBBB";
+
+    private static final LocalDate DEFAULT_DATE_ACQUIRE = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_DATE_ACQUIRE = LocalDate.now(ZoneId.systemDefault());
 
     @Inject
     private ItemRepository itemRepository;
@@ -79,6 +84,7 @@ public class ItemResourceIntTest {
         item = new Item();
         item.setSerialNumber(DEFAULT_SERIAL_NUMBER);
         item.setStorageLocation(DEFAULT_STORAGE_LOCATION);
+        item.setDateAcquire(DEFAULT_DATE_ACQUIRE);
     }
 
     @Test
@@ -99,6 +105,25 @@ public class ItemResourceIntTest {
         Item testItem = items.get(items.size() - 1);
         assertThat(testItem.getSerialNumber()).isEqualTo(DEFAULT_SERIAL_NUMBER);
         assertThat(testItem.getStorageLocation()).isEqualTo(DEFAULT_STORAGE_LOCATION);
+        assertThat(testItem.getDateAcquire()).isEqualTo(DEFAULT_DATE_ACQUIRE);
+    }
+
+    @Test
+    @Transactional
+    public void checkDateAcquireIsRequired() throws Exception {
+        int databaseSizeBeforeTest = itemRepository.findAll().size();
+        // set the field null
+        item.setDateAcquire(null);
+
+        // Create the Item, which fails.
+
+        restItemMockMvc.perform(post("/api/items")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(item)))
+                .andExpect(status().isBadRequest());
+
+        List<Item> items = itemRepository.findAll();
+        assertThat(items).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
@@ -113,7 +138,8 @@ public class ItemResourceIntTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(item.getId().intValue())))
                 .andExpect(jsonPath("$.[*].serialNumber").value(hasItem(DEFAULT_SERIAL_NUMBER.toString())))
-                .andExpect(jsonPath("$.[*].storageLocation").value(hasItem(DEFAULT_STORAGE_LOCATION.toString())));
+                .andExpect(jsonPath("$.[*].storageLocation").value(hasItem(DEFAULT_STORAGE_LOCATION.toString())))
+                .andExpect(jsonPath("$.[*].dateAcquire").value(hasItem(DEFAULT_DATE_ACQUIRE.toString())));
     }
 
     @Test
@@ -128,7 +154,8 @@ public class ItemResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(item.getId().intValue()))
             .andExpect(jsonPath("$.serialNumber").value(DEFAULT_SERIAL_NUMBER.toString()))
-            .andExpect(jsonPath("$.storageLocation").value(DEFAULT_STORAGE_LOCATION.toString()));
+            .andExpect(jsonPath("$.storageLocation").value(DEFAULT_STORAGE_LOCATION.toString()))
+            .andExpect(jsonPath("$.dateAcquire").value(DEFAULT_DATE_ACQUIRE.toString()));
     }
 
     @Test
@@ -150,6 +177,7 @@ public class ItemResourceIntTest {
         // Update the item
         item.setSerialNumber(UPDATED_SERIAL_NUMBER);
         item.setStorageLocation(UPDATED_STORAGE_LOCATION);
+        item.setDateAcquire(UPDATED_DATE_ACQUIRE);
 
         restItemMockMvc.perform(put("/api/items")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -162,6 +190,7 @@ public class ItemResourceIntTest {
         Item testItem = items.get(items.size() - 1);
         assertThat(testItem.getSerialNumber()).isEqualTo(UPDATED_SERIAL_NUMBER);
         assertThat(testItem.getStorageLocation()).isEqualTo(UPDATED_STORAGE_LOCATION);
+        assertThat(testItem.getDateAcquire()).isEqualTo(UPDATED_DATE_ACQUIRE);
     }
 
     @Test

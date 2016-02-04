@@ -1,17 +1,17 @@
 'use strict';
 
 angular.module('inventoryappApp')
-    .controller('ItemController', function ($scope, $state, Item, ItemSearch, ParseLinks) {
+    .controller('ItemHistoryController', function ($scope, $state, ItemHistory, ItemHistorySearch, ParseLinks) {
 
-        $scope.items = [];
+        $scope.itemHistorys = [];
         $scope.predicate = 'id';
         $scope.reverse = true;
         $scope.page = 1;
         $scope.loadAll = function() {
-            Item.query({page: $scope.page - 1, size: 20, sort: [$scope.predicate + ',' + ($scope.reverse ? 'asc' : 'desc'), 'id']}, function(result, headers) {
+            ItemHistory.query({page: $scope.page - 1, size: 20, sort: [$scope.predicate + ',' + ($scope.reverse ? 'asc' : 'desc'), 'id']}, function(result, headers) {
                 $scope.links = ParseLinks.parse(headers('link'));
                 $scope.totalItems = headers('X-Total-Count');
-                $scope.items = result;
+                $scope.itemHistorys = result;
             });
         };
         $scope.loadPage = function(page) {
@@ -22,8 +22,8 @@ angular.module('inventoryappApp')
 
 
         $scope.search = function () {
-            ItemSearch.query({query: $scope.searchQuery}, function(result) {
-                $scope.items = result;
+            ItemHistorySearch.query({query: $scope.searchQuery}, function(result) {
+                $scope.itemHistorys = result;
             }, function(response) {
                 if(response.status === 404) {
                     $scope.loadAll();
@@ -37,10 +37,7 @@ angular.module('inventoryappApp')
         };
 
         $scope.clear = function () {
-            $scope.item = {
-                serialNumber: null,
-                storageLocation: null,
-                dateAcquire: null,
+            $scope.itemHistory = {
                 id: null
             };
         };

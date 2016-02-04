@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('inventoryappApp').controller('ItemDialogController',
-    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Item', 'ItemGroup', 'ItemModel', 'Unit', 'ItemStatus',
-        function($scope, $stateParams, $uibModalInstance, entity, Item, ItemGroup, ItemModel, Unit, ItemStatus) {
+    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Item', 'ItemGroup', 'ItemModel', 'ItemStatus', 'ItemHistory',
+        function($scope, $stateParams, $uibModalInstance, entity, Item, ItemGroup, ItemModel, ItemStatus, ItemHistory) {
 
         $scope.item = entity;
         $scope.itemgroups = ItemGroup.query();
         $scope.itemmodels = ItemModel.query();
-        $scope.units = Unit.query();
         $scope.itemstatuss = ItemStatus.query();
+        $scope.itemhistorys = ItemHistory.query();
         $scope.load = function(id) {
             Item.get({id : id}, function(result) {
                 $scope.item = result;
@@ -36,5 +36,14 @@ angular.module('inventoryappApp').controller('ItemDialogController',
 
         $scope.clear = function() {
             $uibModalInstance.dismiss('cancel');
+        };
+        $scope.datePickerForDateAcquire = {};
+
+        $scope.datePickerForDateAcquire.status = {
+            opened: false
+        };
+
+        $scope.datePickerForDateAcquireOpen = function($event) {
+            $scope.datePickerForDateAcquire.status.opened = true;
         };
 }]);

@@ -2,41 +2,37 @@
 
 describe('Controller Tests', function() {
 
-    describe('Item Detail Controller', function() {
+    describe('ItemHistory Detail Controller', function() {
         var $scope, $rootScope;
-        var MockEntity, MockItem, MockItemGroup, MockItemModel, MockItemStatus, MockItemHistory;
+        var MockEntity, MockItemHistory, MockItem, MockItemStatus;
         var createController;
 
         beforeEach(inject(function($injector) {
             $rootScope = $injector.get('$rootScope');
             $scope = $rootScope.$new();
             MockEntity = jasmine.createSpy('MockEntity');
-            MockItem = jasmine.createSpy('MockItem');
-            MockItemGroup = jasmine.createSpy('MockItemGroup');
-            MockItemModel = jasmine.createSpy('MockItemModel');
-            MockItemStatus = jasmine.createSpy('MockItemStatus');
             MockItemHistory = jasmine.createSpy('MockItemHistory');
+            MockItem = jasmine.createSpy('MockItem');
+            MockItemStatus = jasmine.createSpy('MockItemStatus');
             
 
             var locals = {
                 '$scope': $scope,
                 '$rootScope': $rootScope,
                 'entity': MockEntity ,
+                'ItemHistory': MockItemHistory,
                 'Item': MockItem,
-                'ItemGroup': MockItemGroup,
-                'ItemModel': MockItemModel,
-                'ItemStatus': MockItemStatus,
-                'ItemHistory': MockItemHistory
+                'ItemStatus': MockItemStatus
             };
             createController = function() {
-                $injector.get('$controller')("ItemDetailController", locals);
+                $injector.get('$controller')("ItemHistoryDetailController", locals);
             };
         }));
 
 
         describe('Root Scope Listening', function() {
             it('Unregisters root scope listener upon scope destruction', function() {
-                var eventType = 'inventoryappApp:itemUpdate';
+                var eventType = 'inventoryappApp:itemHistoryUpdate';
 
                 createController();
                 expect($rootScope.$$listenerCount[eventType]).toEqual(1);

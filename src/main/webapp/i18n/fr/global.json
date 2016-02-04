@@ -15,6 +15,7 @@
                 "unit": "Unit",
                 "item": "Item",
                 "itemStatus": "ItemStatus",
+                "itemHistory": "ItemHistory",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

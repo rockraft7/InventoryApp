@@ -1,0 +1,52 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myStockAcquisitionLabel" translate="inventoryappApp.stockAcquisition.home.createOrEditLabel">Create or edit a StockAcquisition</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="stockAcquisition.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="inventoryappApp.stockAcquisition.invoiceId" for="field_invoiceId">InvoiceId</label>
+            <input type="text" class="form-control" name="invoiceId" id="field_invoiceId"
+                    ng-model="stockAcquisition.invoiceId"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="inventoryappApp.stockAcquisition.dateAcquire" for="field_dateAcquire">DateAcquire</label>
+            <input id="field_dateAcquire" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="stockAcquisition.dateAcquire" is-open="datePickerForDateAcquire.status.opened"
+            required/>
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="datePickerForDateAcquireOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+            <div ng-show="editForm.dateAcquire.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.dateAcquire.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="inventoryappApp.stockAcquisition.remarks" for="field_remarks">Remarks</label>
+            <input type="text" class="form-control" name="remarks" id="field_remarks"
+                    ng-model="stockAcquisition.remarks"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,26 @@
+{
+    "inventoryappApp": {
+        "stockAcquisition" : {
+            "home": {
+                "title": "StockAcquisitions",
+                "createLabel": "Créer un nouveau StockAcquisition",
+                "createOrEditLabel": "Créer ou éditer un StockAcquisition",
+                "search": "Search for StockAcquisition"
+            },
+            "created": "Un nouveau StockAcquisition a été créé avec l'identifiant {{ param }}",
+            "updated": "Le StockAcquisition avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le StockAcquisition avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le StockAcquisition {{ id }} ?"
+            },
+            "detail": {
+                "title": "StockAcquisition"
+            },
+            "invoiceId": "InvoiceId",
+            "dateAcquire": "DateAcquire",
+            "remarks": "Remarks",
+            "item": "Item"
+        }
+    }
+}
+

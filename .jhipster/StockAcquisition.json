@@ -1,0 +1,36 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "item",
+            "otherEntityName": "item",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "stockAcquisition"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "invoiceId",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "dateAcquire",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "remarks",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160204052411",
+    "dto": "no",
+    "service": "no",
+    "pagination": "pagination",
+    "enableEntityAudit": true
+}

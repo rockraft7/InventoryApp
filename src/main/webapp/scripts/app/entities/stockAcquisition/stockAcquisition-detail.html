@@ -1,0 +1,46 @@
+
+<div>
+    <h2><span translate="inventoryappApp.stockAcquisition.detail.title">StockAcquisition</span> {{stockAcquisition.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th translate="entity.detail.field">Field</th>
+                <th translate="entity.detail.value">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span translate="inventoryappApp.stockAcquisition.invoiceId">InvoiceId</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{stockAcquisition.invoiceId}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="inventoryappApp.stockAcquisition.dateAcquire">DateAcquire</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{stockAcquisition.dateAcquire | date:'mediumDate'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="inventoryappApp.stockAcquisition.remarks">Remarks</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{stockAcquisition.remarks}}</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

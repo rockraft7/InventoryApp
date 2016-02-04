@@ -35,13 +35,13 @@ import static org.elasticsearch.index.query.QueryBuilders.*;
 public class ItemGroupResource {
 
     private final Logger log = LoggerFactory.getLogger(ItemGroupResource.class);
-        
+
     @Inject
     private ItemGroupRepository itemGroupRepository;
-    
+
     @Inject
     private ItemGroupSearchRepository itemGroupSearchRepository;
-    
+
     /**
      * POST  /itemGroups -> Create a new itemGroup.
      */
@@ -90,7 +90,8 @@ public class ItemGroupResource {
     public ResponseEntity<List<ItemGroup>> getAllItemGroups(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of ItemGroups");
-        Page<ItemGroup> page = itemGroupRepository.findAll(pageable); 
+        log.debug("Test test");
+        Page<ItemGroup> page = itemGroupRepository.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/itemGroups");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

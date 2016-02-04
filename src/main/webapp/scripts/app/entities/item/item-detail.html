@@ -58,6 +58,14 @@
                     <a class="form-control-static" ui-sref="ItemStatus.detail({id:item.status.id})">{{item.status.caption}}</a>
                 </td>
             </tr>
+            <tr>
+                <td>
+                    <span translate="inventoryappApp.item.stockAcquisition">stockAcquisition</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="StockAcquisition.detail({id:item.stockAcquisition.id})">{{item.stockAcquisition.invoiceId}}</a>
+                </td>
+            </tr>
             </tbody>
         </table>
     </div>

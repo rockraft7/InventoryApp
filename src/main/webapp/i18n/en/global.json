@@ -16,6 +16,7 @@
                 "item": "Item",
                 "itemStatus": "ItemStatus",
                 "itemHistory": "ItemHistory",
+                "stockAcquisition": "StockAcquisition",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

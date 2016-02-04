@@ -25,15 +25,17 @@ public class ItemGroup extends AbstractAuditingEntity implements Serializable {
     @NotNull
     @Column(name = "name", nullable = false)
     private String name;
-    
+
     @NotNull
     @Size(max = 6)
     @Column(name = "tag", length = 6, nullable = false)
     private String tag;
-    
+
+
+
     @Column(name = "description")
     private String description;
-    
+
     public Long getId() {
         return id;
     }
@@ -45,7 +47,7 @@ public class ItemGroup extends AbstractAuditingEntity implements Serializable {
     public String getName() {
         return name;
     }
-    
+
     public void setName(String name) {
         this.name = name;
     }
@@ -53,7 +55,7 @@ public class ItemGroup extends AbstractAuditingEntity implements Serializable {
     public String getTag() {
         return tag;
     }
-    
+
     public void setTag(String tag) {
         this.tag = tag;
     }
@@ -61,7 +63,7 @@ public class ItemGroup extends AbstractAuditingEntity implements Serializable {
     public String getDescription() {
         return description;
     }
-    
+
     public void setDescription(String description) {
         this.description = description;
     }

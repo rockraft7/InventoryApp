@@ -1,14 +1,15 @@
 'use strict';
 
 angular.module('inventoryappApp').controller('ItemDialogController',
-    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Item', 'ItemGroup', 'ItemModel', 'ItemStatus', 'ItemHistory',
-        function($scope, $stateParams, $uibModalInstance, entity, Item, ItemGroup, ItemModel, ItemStatus, ItemHistory) {
+    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Item', 'ItemGroup', 'ItemModel', 'ItemStatus', 'ItemHistory', 'StockAcquisition',
+        function($scope, $stateParams, $uibModalInstance, entity, Item, ItemGroup, ItemModel, ItemStatus, ItemHistory, StockAcquisition) {
 
         $scope.item = entity;
         $scope.itemgroups = ItemGroup.query();
         $scope.itemmodels = ItemModel.query();
         $scope.itemstatuss = ItemStatus.query();
         $scope.itemhistorys = ItemHistory.query();
+        $scope.stockacquisitions = StockAcquisition.query();
         $scope.load = function(id) {
             Item.get({id : id}, function(result) {
                 $scope.item = result;

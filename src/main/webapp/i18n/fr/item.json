@@ -22,7 +22,8 @@
             "group": "Group",
             "model": "Model",
             "status": "Status",
-            "history": "History"
+            "history": "History",
+            "stockAcquisition": "StockAcquisition"
         }
     }
 }

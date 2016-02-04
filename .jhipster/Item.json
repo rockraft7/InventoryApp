@@ -27,6 +27,13 @@
             "otherEntityName": "ItemHistory",
             "relationshipType": "one-to-many",
             "otherEntityField": "id"
+        },
+        {
+            "relationshipId": 5,
+            "relationshipName": "stockAcquisition",
+            "otherEntityName": "StockAcquisition",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "invoiceId"
         }
     ],
     "fields": [

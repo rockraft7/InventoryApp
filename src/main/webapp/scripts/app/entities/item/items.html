@@ -37,6 +37,7 @@ class="hidden-xs"                        translate="inventoryappApp.item.home.cr
                     <th jh-sort-by="group.name"><span translate="inventoryappApp.item.group">group</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="model.name"><span translate="inventoryappApp.item.model">model</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="status.caption"><span translate="inventoryappApp.item.status">status</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="stockAcquisition.invoiceId"><span translate="inventoryappApp.item.stockAcquisition">stockAcquisition</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -54,6 +55,9 @@ class="hidden-xs"                        translate="inventoryappApp.item.home.cr
                     </td>
                     <td>
                         <a ui-sref="ItemStatus.detail({id:item.status.id})">{{item.status.caption}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="StockAcquisition.detail({id:item.stockAcquisition.id})">{{item.stockAcquisition.invoiceId}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

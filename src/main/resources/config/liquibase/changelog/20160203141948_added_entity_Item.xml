@@ -32,6 +32,7 @@
             <column name="group_id" type="bigint"/>
             <column name="model_id" type="bigint"/>
             <column name="status_id" type="bigint"/>
+            <column name="stock_acquisition_id" type="bigint"/>
             <column name="created_by" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
@@ -60,6 +61,12 @@
                                  constraintName="fk_item_status_id"
                                  referencedColumnNames="id"
                                  referencedTableName="item_status"/>
+
+        <addForeignKeyConstraint baseColumnNames="stock_acquisition_id"
+                                 baseTableName="item"
+                                 constraintName="fk_item_stockacquisition_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="stock_acquisition"/>
 
     </changeSet>
 </databaseChangeLog>

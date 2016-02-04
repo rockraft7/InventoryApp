@@ -1,6 +1,5 @@
 package com.faizalsidek.inventory.domain;
 
-import com.faizalsidek.inventory.config.audit.ItemAuditEventListener;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -21,7 +20,6 @@ import java.util.Objects;
 @Table(name = "item")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Document(indexName = "item")
-@EntityListeners(ItemAuditEventListener.class)
 public class Item extends AbstractAuditingEntity implements Serializable {
 
     @Id
@@ -30,14 +28,14 @@ public class Item extends AbstractAuditingEntity implements Serializable {
 
     @Column(name = "serial_number")
     private String serialNumber;
-
+    
     @Column(name = "storage_location")
     private String storageLocation;
-
+    
     @NotNull
     @Column(name = "date_acquire", nullable = false)
     private LocalDate dateAcquire;
-
+    
     @ManyToOne
     @JoinColumn(name = "group_id")
     private ItemGroup group;
@@ -55,6 +53,10 @@ public class Item extends AbstractAuditingEntity implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<ItemHistory> historys = new HashSet<>();
 
+    @ManyToOne
+    @JoinColumn(name = "stock_acquisition_id")
+    private StockAcquisition stockAcquisition;
+
     public Long getId() {
         return id;
     }
@@ -66,7 +68,7 @@ public class Item extends AbstractAuditingEntity implements Serializable {
     public String getSerialNumber() {
         return serialNumber;
     }
-
+    
     public void setSerialNumber(String serialNumber) {
         this.serialNumber = serialNumber;
     }
@@ -74,7 +76,7 @@ public class Item extends AbstractAuditingEntity implements Serializable {
     public String getStorageLocation() {
         return storageLocation;
     }
-
+    
     public void setStorageLocation(String storageLocation) {
         this.storageLocation = storageLocation;
     }
@@ -82,7 +84,7 @@ public class Item extends AbstractAuditingEntity implements Serializable {
     public LocalDate getDateAcquire() {
         return dateAcquire;
     }
-
+    
     public void setDateAcquire(LocalDate dateAcquire) {
         this.dateAcquire = dateAcquire;
     }
@@ -117,6 +119,14 @@ public class Item extends AbstractAuditingEntity implements Serializable {
 
     public void setHistorys(Set<ItemHistory> ItemHistorys) {
         this.historys = ItemHistorys;
+    }
+
+    public StockAcquisition getStockAcquisition() {
+        return stockAcquisition;
+    }
+
+    public void setStockAcquisition(StockAcquisition StockAcquisition) {
+        this.stockAcquisition = StockAcquisition;
     }
 
     @Override
